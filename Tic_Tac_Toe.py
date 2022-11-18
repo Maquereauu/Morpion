@@ -1,5 +1,5 @@
 from math import *
-import random
+from random import *
 
 def Morpion():
   l = [0] * 9
@@ -99,19 +99,14 @@ def Morpion():
 
 def symbol():
   symbolchosen = str(input("Choisissez votre symbole(Croix ou Cercle)"))
+  randomvalue=randint(0,10)
   if symbolchosen == "Croix":
-    symboll = ['X','♥','X','X','X','X','X','X']
-    randomSymbol = random.choice(symboll)
-    if randomSymbol == 'X':
-      return ['X', 'O']
-    elif randomSymbol == '♥':
-      return ['X', '♥']
-  elif symbolchosen == "Cercle":
-    symboll = ['O','♥','O','O','O','O','O','O']
-    randomSymbol = random.choice(symboll)
-    if randomSymbol == 'O':
-      return ['O', 'X']
-    elif randomSymbol == '♥':
+    if randomvalue == 5:
+      return ['♥','O']
+    return ['X', 'O']
+  if symbolchosen == "Cercle":
+    if randomvalue == 5:
       return ['♥', 'X']
+    return ['O', 'X']
   else:
     return symbol()
