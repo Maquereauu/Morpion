@@ -1,0 +1,102 @@
+# importer module math
+# importer module random
+# Définir la fonction Morpion sans arguments
+    # Initialiser la table l qui contient la valeur 0 et qui multiplie l'élément 0 de la liste 9 fois, créant 9 élements dans la liste
+    # Initialiser la variable lenx a 3
+    # Initialiser la variable leny a 3
+    # Initialiser le dictionnaire dict_Morpion qui contient 9 éléments qui associe chaque clé a un un entier
+    # Initialiser grid_Morpion à une table qui contient la valeur de la case quand encore personne n'a joué
+    # faire une boucle qui continue tant que
+        #alors on essaie si rules est un entier
+            #on initialise rules au retour de la fonction int
+            #on sort de la boucle
+        #sauf si rules n'est pas un entier
+            #on affiche "Veuillez mettre un entier,non pas un string >:(" et on retourne au début de la boucle
+    # Si l'assertion rules est égal a Vrai
+        # Alors
+        # Afficher dict_Morpion
+    # Initialiser la liste symbolchoice au retour de l'execution de la fonction symbol()
+    # Initialiser player1symbol a l'index 0 de la liste symbolchoice
+    # Initialiser player2symbol a l'index 1 de la liste symbolchoice
+    # Initialiser actual a la variable player1symbol
+    # Initialiser actual a la variable player1symbol
+    # Initialiser player1 a True
+    # Tant que
+        # Alors
+        #Si player1 est vraie
+            #alors
+            # Initialiser player au string du retour de l'execution de la fonction input
+        #Si player1 est fausse
+            # Alors
+            # Initialiser player au string du retour de l'execution de la fonction input
+        # Si la variable Player se trouve dans la table dict_Morpion et que la liste l avec comme index la valeur du dictionnaire dict_Morpion correspondant à la clé player correspond à 0
+            # Alors
+            #Assigner player à la valeur correspondant à la clé player du dictionnaire dict_Morpion
+            #Assigner l'index player de la liste l à 1 au lieu de 0 (pour signifier que la case est prise)
+            #Assigner à l'index de la liste double dimmensionnelle l'arrondi inférieur du quotient de la division de player par 3 et le résultat pour le deuxième index de player par modulo 3 et y assigne la variable actual
+        #sinon
+            # Essaie
+                # Mettre la variable player en entier
+            # Sauf si ValueError (ce n'est pas une clé du dictionnaire et de ce fait mettre ce string en int va causer une erreur)
+                # Alors
+                # Continuer la boucle
+            #Assigner à player la variable player en tant qu'entier
+            # Si player est supérier à 9 ou si player est inférieur à 0 ou si l'index de la liste l correspondant à player est égal à 1
+                # Alors
+                # Afficher Ce n'est pas un coup possible
+                # Continuer la boucle
+            # Faire une boucle qui attribue a la variable keys la clés du dictionnaire dict_Morpion correspondant a chaque iteration de la boucle
+                # Si player est égal à la valeur du dictionnaire dict_Morpion correspondant à la clé keys
+                    # Assigner à l'index player de la liste l 1
+                    # Assigner à l'index de la liste double dimmensionnelle l'arrondi inférieur du quotient de la division de player par 3 et le résultat pour le deuxième index de player par modulo 3 et y assigne la variable actual
+        # Faire une boucle qui s'effectue lenx fois
+            # Afficher la ligne correspondant à k de la liste double dimensionnelle grid_Morpion
+        # Initialiser posX à une liste vide
+        # Initialiser posY à une liste vide
+        # Faire une boucle qui s'effectue lenx fois
+            # Faire une boucle qui s'effectue leny fois
+                # Si l'index de l'iteration y dans l'index de l'iteration x de la liste grid_Morpion est égale a player1symbol si player1 est vrai ou est égale a player2symbol si player1 est faux
+                    # inserer l'iteration x en tant que string a la fin de la liste posX
+                    #inserer l'iteration y en tant que string a la fin de la liste posY
+                # Si x == 1 et y == 1
+                    # Si l'index de l'iteration y dans l'index x de la liste grid_Morpion est égale a player1symbol et l'index y-1 dans l'index x-1 de la liste grid_Morpion égale a player1symbol et l'index y+1 dans l'index x+1 de la liste grid_Morpion égale a player1symbol
+                        # Alors Renvoie ligne diagonale,player1 gagne,GG
+                    # Sinon si l'index de l'iteration y dans l'index x de la liste grid_Morpion est égale a player1symbol et l'index y+1 dans l'index x-1 de la liste grid_Morpion égale a player1symbol et l'index y-1 dans l'index x+1 de la liste grid_Morpion égale a player1symbol
+                        # Alors Renvoie ligne diagonale,player1 gagne,GG
+                    # Sinon si l'index de l'iteration y dans l'index x de la liste grid_Morpion est égale a player2symbol et l'index y-1 dans l'index x-1 de la liste grid_Morpion égale a player2symbol et l'index y+1 dans l'index x+1 de la liste grid_Morpion égale a player2symbol
+                        # Alors Renvoie ligne diagonale,player2 gagne,GG
+                    # Sinon si l'index de l'iteration y dans l'index x de la liste grid_Morpion est égale a player2symbol et l'index y+1 dans l'index x-1 de la liste grid_Morpion égale a player2symbol et l'index y-1 dans l'index x+1 de la liste grid_Morpion égale a player2symbol
+                        # Alors Renvoie ligne diagonale,player2 gagne,GG
+        # si le total de posY de 0,de 1 ou de 2 vaut 3
+            # si joueur1 est vraie
+                # Alors Renvoie ligne vertical,player1 gagne,GG
+            # sinon
+                # Alors Renvoie ligne vertical,player2 gagne,GG
+            # si le total de posX de 0,de 1 ou de 2 vaut 3
+                # Alors Renvoie ligne horizontale,player1 gagne,GG
+            # sinon
+                # Alors Renvoie ligne horizontale,player2 gagne,GG
+        #si le nombre de 1 présent dans la liste l vaut 9
+            #alors on renvoie Draw
+        # Si player1 est vraie
+            # Alors player1 est faux
+            # actual vaut player2symbol
+            # retourne en haut de la boucle
+        # Si player 1 est faux
+            # player1 est vrai
+            # actual vaut player 1 symbol
+
+
+#Définir la fonction symbol sans paramètre
+    # Assigner à symbolchosen le retour en str de la fonction input
+    # Assigner à randomvalue une valeur entre 0 et 10
+        # Si symbolchosen est égal à Croix
+            #si randomvalue == 5
+                # alors retourne ['♥','O']
+            #retourne ['X','O']
+        # Si symbolchosen est égal à Cercle
+            #si randomvalue == 5
+                # Alors on renvoie la liste ['♥', 'X']
+            #retourne ['O','X']
+        # Sinon
+            #Alors on renvoie l'appel de la fonction symbol
