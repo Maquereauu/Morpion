@@ -38,7 +38,7 @@ def Morpion():
       player = str(input("Joueur 1 ,veuillez choisir "))
     if player1 == False:
       print("Au tour de P2:")
-      player = str(input("Joueur 1 ,veuillez choisir "))
+      player = str(input("Joueur 2 ,veuillez choisir "))
     if player in dict_Morpion and l[dict_Morpion[player]] == 0:
       player = dict_Morpion[player]
       l[player] = 1
