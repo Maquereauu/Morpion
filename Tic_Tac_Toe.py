@@ -110,3 +110,6 @@ def symbol():
     return ['O', 'X']
   else:
     return symbol()
+
+
+print(Morpion())
