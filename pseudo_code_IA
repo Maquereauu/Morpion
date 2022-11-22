@@ -1,0 +1,123 @@
+# Initialiser la fonction IA avec comme arguments board(grille), symbolPlayer, symbolAI
+  #Initialiser la variable c a 0
+  # Initialiser a X un liste vide
+  # Initialiser a Y a un liste a 2 dimensions de 3 lignes et 3 colonnes
+  # Initialiser Diag1 a une liste vide 
+  # Initialiser Diag2 a une liste vide 
+  # Pour x dans 3 itération
+    # Alors 
+    # Pour chaque itération de x, append la liste X avec la valeur de la table board à l'index x
+    # Pour y dans 3 itération
+      # Alors
+      # Pour chaque itération de y, assigner a la table Y avec l'index x et y, la valeur de la table board a l'index x et y
+  # Pour k dans 3 itération
+    # Alors
+    # Pour i dans 3 itérations
+      # Alors
+      # Si k et i égual 0 ou si k et i égal 1 ou si k et i égal 2
+        # Alors
+        # Assigner a la table Diag1, la valeur de la table X à l'index k et i 
+      # Si k et i égual 0 et 2 ou si k et i égal 1 ou si k et i égal 2 et 0
+        # Alors
+        # Assigner a la table Diag2, la valeur de la table X à l'index k et i 
+  # Initialiser corners a la liste contenant la valeur de la table Diag1 a l'index 0, la valeur de la table Diag1 a l'index 2, Diag2 a l'index 0 et Diag2 a l'index 2
+  # Initialiser la variable corners_id a la liste contenant les int 0,8,2,6
+  # Pour j dans 3 itération
+    # Alors
+    # Pour l dans 3 itération
+      # Si la valeur de board à l'index j et l est égale au string '□'
+        # Alors 
+        # Incrémenter la variable c de 1
+  #Si c égal a 9
+    # Alors
+    # Return 0
+  # Pour i dans 3 itérations
+    # Si la somme de la variable symbolAI dans la liste X a l'index i est égale a 2 et que la somme de la variable symbolPlayer dans la liste X n'est pas égale a 1
+      # Alors
+      # Pour j dans 3 itération
+        # Alors
+        # Si la valeur dans la liste X a l'index i j n'est pas égale a symbolAI
+          # Alors 
+          # Return la somme de j avec i fois 3
+    # Si la somme de la variable symbolAI dans la liste Y avec l'index i est égal a 2 et que la somme de la variable symbolPlayer dans la liste Y avec l'index i n'est pas égale a 1
+      # Alors
+      # Pour j dans 3 itérations
+        # Alors
+        # Si la valeur de la liste Y avec l'index i j n'est pas égale a symbolAI
+          # Alors 
+          # Return la somme de i avec j*3
+    # Si la somme de la variable symbolAI dans la liste Diag1 est égal a 2
+      #Alors
+      # Si la valeur dans la liste Diag1 a l'index i n'est pas égale a symbolAI
+        # Alors 
+        # Return i fois 4
+    # Si la somme de la variable symbolAI dans la liste Diag2 est égal a 2 et la somme de la variable symbolAI dans la liste Diag2 a l'index i n'est pas égal a 1
+      # Alors
+      # Si la valeur de la liste Diag2 a l'index i n'est pas égale a symbolAI 
+        # Alors
+        # Return la somme de 2 avec i fois 2
+  # Pour l dans 3 itération
+    # Si la somme de la variable symbolPlayer dans la liste X a l'index l est égal a 2 et que la somme de la variable symbolAI dans la liste X a l'index l n'est pas égal a 1 
+      # Alors
+      # Pour j dans 3 itération
+        # Si la valeur dans la liste X a l'index l et j n'est pas égale  a symbolPlayer
+          # Alors
+          # Return la somme de j avec l fois 3
+    #Si le nombre de case de symbol player sur la ligne l de Y vaut 2 et que le nombre de case de symbolAI sur la ligne l de Y vaut 0
+      #Alors
+      #Pour j allant de 0 à 2
+        #Si la case l j de la liste Y est différente de symbol player
+          #Alors
+          #Renvoyer la case
+    #Si le nombre de case symbolPlayer sur Diag1 vaut 2 et que la case l de la diag 1 est différente de symbolAI
+      #Alors
+      #Si la case l de Diag1 est différente de symbolPlayer
+        #Alors
+        #Renvoyer la case
+    #Si le nombre de cases symbolPlayer sur Diag2 vaut 2 et que la case l de la diag 2 est différente de symbolAI
+      #Alors
+      #Si la case l de la diag2 est différente de symbolPlayer
+        #Alors
+        #renvoyer la case
+  #Si le nombre de corner vide vaut la longueur de la liste corners
+    #Alors
+    #Renvoyer la case
+  #Pour i allant de 0 à 2
+    #Pour j allant de 0 à 2
+      #Si i vaut 1 et que j vaut 0 ou j vaut 2
+        #Alors
+        #Si tableau i j vaut le symbole du player et que la case i+j est vide
+          #Alors
+          #renvoyer la case
+      #Si j vaut 1 et que i vaut 0 ou i vaut 2
+        #Alors
+        #Si i j du tableau vaut symbolplayer et que les cases 2*3+j et j sont vides
+          #Alors
+          #Si i vaut 0
+            #Alors
+            #Renvoyer la case 
+          #Renvoyer la case
+  #Si le nombre de corners ou le symbole de l'IA est présent vaut 1 et que le nombre de corners ou le symbole du player est présent vaut 0
+    #Alors
+    #Pour i allant de 0 à la longueur de la liste corner
+      #Si le corner a le symbole de l'IA
+        #Alors
+          #Alors
+          #Renvoyer le corner
+        #Renvoyer le corner
+  #Si le nombre de corners avec comme symbole celui de l'IA vaut 0 et que le nombre de corners avec comme symbole celui du player vaut 1
+    #Alors
+    #Renvoyer le centre
+  #Pour i allant de 0 à 2 avec un pas de 2
+    #Pour j allant de 0 à 2 avec un pas de 2
+      #si le nombre des symboles de player sur la ligne verticale i vaut 1 et que le nombre de cases vides sur la verticale i vaut 2 et que le nombre des symboles de player sur la ligne horizontale i vaut 1 et que le nombre de cases vides sur la ligne horizontale i vaut 2
+        #Alors
+        #Pour l allant de 0 à 2
+          #si la case est vide aux coordonnées j et l
+            #Alors renvoyer la valeur de la case sur laquelle l'IA veut poser som symbole
+  #Sinon
+    #Alors
+    #Pour i allant de 0 à 2
+      #Pour j allant de 0 à 2
+        #Si la case i j de board est vide
+          #Alors renvoyer la valeur de la case sur laquelle l'IA veut poser som symbole
