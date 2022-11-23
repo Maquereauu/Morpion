@@ -233,9 +233,8 @@ def IA(board,symbolPlayer,symbolAI):
   for i in range(0,3,2):
     for j in range(0,3,2):
       if Y[i].count(symbolPlayer) == 1 and Y[i].count('□') == 2 and X[j].count(symbolPlayer) == 1 and X[j].count('□') == 2:
-        for l in range(3):
-          if X[j][l] == '□':
-            return (j*3)+l
+        if X[j][1] == '□':
+          return (j*3)+1
   else:
     for i in range(3):
       for j in range(3):
