@@ -112,9 +112,8 @@
     #Pour j allant de 0 à 2 avec un pas de 2
       #si le nombre des symboles de player sur la ligne verticale i vaut 1 et que le nombre de cases vides sur la verticale i vaut 2 et que le nombre des symboles de player sur la ligne horizontale i vaut 1 et que le nombre de cases vides sur la ligne horizontale i vaut 2
         #Alors
-        #Pour l allant de 0 à 2
-          #si la case est vide aux coordonnées j et l
-            #Alors renvoyer la valeur de la case sur laquelle l'IA veut poser som symbole
+        #si la case est vide aux coordonnées j et 1
+          #Alors renvoyer la valeur de la case sur laquelle l'IA veut poser som symbole
   #Sinon
     #Alors
     #Pour i allant de 0 à 2
