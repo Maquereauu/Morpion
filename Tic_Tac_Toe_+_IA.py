@@ -138,11 +138,11 @@ def symbol():
   randomvalue=randint(0,10)
   if symbolchosen in ["Croix","croix",'X','x']:
     if randomvalue == 5:
-      return ['🤠','O']
+      return ['🤠','🐄']
     return ['X', 'O']
   if symbolchosen in ["Cercle","cercle","O","o"]:
     if randomvalue == 5:
-      return ['🤠', 'X']
+      return ['🤠', '🐄']
     return ['O', 'X']
   else:
     return symbol()
