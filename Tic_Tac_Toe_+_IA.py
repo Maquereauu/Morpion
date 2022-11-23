@@ -40,13 +40,21 @@ def Morpion(isFirst=1):
   symbolchoice = symbol()
   player1symbol = symbolchoice[0]
   player2symbol = symbolchoice[1]
-  actual = player1symbol
-  player1 = True
+  whoplays = randint(0,1)
+  if whoplays == 0:
+    player1 = True
+    actual = player1symbol
+  if whoplays == 1:
+    player1 = False
+    actual = player2symbol
 
   while True:
     if player1:
       print("Au tour de P1:")
       player = str(input("Joueur 1 ,veuillez choisir "))
+      if player == "ratio":
+        print("Player 1 a gagné? ah oui...🤓")
+        return playAgain()
       if player in dict_Morpion and l[index_values[dict_Morpion[player]]] == 0:
         player = index_values[dict_Morpion[player]]
         l[player] = 1
@@ -128,11 +136,11 @@ def Morpion(isFirst=1):
 def symbol():
   symbolchosen = str(input("Choisissez votre symbole(Croix ou Cercle)"))
   randomvalue=randint(0,10)
-  if symbolchosen == "Croix":
+  if symbolchosen in ["Croix","croix",'X','x']:
     if randomvalue == 5:
       return ['♥','O']
     return ['X', 'O']
-  if symbolchosen == "Cercle":
+  if symbolchosen in ["Cercle","cercle","O","o"]:
     if randomvalue == 5:
       return ['♥', 'X']
     return ['O', 'X']
