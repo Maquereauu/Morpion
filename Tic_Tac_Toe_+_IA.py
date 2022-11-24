@@ -236,7 +236,15 @@ def IA(board,symbolPlayer,symbolAI):
         if X[j][1] == '□':
           return (j*3)+1
   for i in range(0,3,2):
-    if Diag1.count(symbolPlayer) == 1 or Diag2.count(symbolPlayer) == 1 and Y[i].count(symbolPlayer) == 1:
+    if Diag1.count(symbolPlayer) == 1 and Y[i].count(symbolPlayer) == 1 and Diag1[0] == '□':
+      if board[1][1] == '□':
+        return 4
+      for j in range(3):
+        if Y[i][j] == '□':
+          return (3*j)+i
+    if Diag2.count(symbolPlayer) == 1 and Y[i].count(symbolPlayer) == 1 and Diag2[0] == '□':
+      if board[1][1] == '□':
+        return 4
       for j in range(3):
         if Y[i][j] == '□':
           return (3*j)+i
