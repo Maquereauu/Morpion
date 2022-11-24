@@ -259,8 +259,12 @@ def IA(board,symbolPlayer,symbolAI):
   for i in range(3):
     for j in range(3):
       if i == 1 and (j == 0 or j == 2):
-        if board[i][j] == symbolPlayer and board[i][0] == '□' :
-          return i+j
+        if j == 2:
+          if board[i][j] == symbolPlayer and board[i][0] == '□':
+            return i+j
+        if j == 0:
+          if board[i][j] == symbolPlayer and board[i][2] == '□':
+            return board[i][2]
       if j == 1 and (i == 0 or i == 2):
         if board[i][j] == symbolPlayer:
           if i == 0 and board[2][j] == '□':
