@@ -235,7 +235,6 @@ def IA(board,symbolPlayer,symbolAI):
       if Diag1[i] != symbolAI:
         return i*4
     if Diag2.count(symbolAI) == 2 and Diag2[i].count(symbolPlayer) !=1:
-      print('oops')
       if Diag2[i] != symbolAI:
         return 2+(i*2)
   for l in range(3):
@@ -254,32 +253,26 @@ def IA(board,symbolPlayer,symbolAI):
       if Diag2[l] != symbolPlayer:
         return 2+(l*2)
   if corners.count('□') == len(corners):
-    return 00
+    return 0
   for i in range(3):
     for j in range(3):
       if i == 1 and (j == 0 or j == 2):
         if board[i][j] == symbolPlayer and i+j == '□' :
           return i+j
       if j == 1 and (i == 0 or i == 2):
-        if board[i][j] == symbolPlayer and (2*3+j == '□' and j == '□'):
-          if i == 0:
-            return 2*3+j
-          return j
-  if corners.count(symbolAI) == 1 and corners.count(symbolPlayer) == 0:
-    for i in range(len(corners)):
-      if corners[i] == symbolAI:
-        if i == 1 or i == 3:
-          return corners_id[i-1]
-        return corners_id[i+1]
+        if board[i][j] == symbolPlayer:
+          if i == 0 and board[2][j] == '□':
+            return (2*3)+j
+          if board[i][j] == '□':
+            return j
   if corners.count(symbolAI) == 0 and corners.count(symbolPlayer) == 1:
     if board[1][1] == '□':
       return 4
   for i in range(0,3,2):
     for j in range(0,3,2):
       if Y[i].count(symbolPlayer) == 1 and Y[i].count('□') == 2 and X[j].count(symbolPlayer) == 1 and X[j].count('□') == 2:
-        for l in range(3):
-          if X[j][l] == '□':
-            return (j*3)+l
+        if X[j][1] == '□':
+          return (j*3)+1
   for i in range(0,3,2):
     if Diag1.count(symbolPlayer) == 1 and Y[i].count(symbolPlayer) == 1 and Diag1[0] == '□':
       if board[1][1] == '□':
@@ -293,6 +286,12 @@ def IA(board,symbolPlayer,symbolAI):
       for j in range(3):
         if Y[i][j] == '□':
           return (3*j)+i
+  if corners.count(symbolAI) == 1 and corners.count(symbolPlayer) == 0:
+    for i in range(len(corners)):
+      if corners[i] == symbolAI:
+        if i == 1 or i == 3:
+          return corners_id[i-1]
+        return corners_id[i+1]
   else:
     for i in range(3):
       for j in range(3):
