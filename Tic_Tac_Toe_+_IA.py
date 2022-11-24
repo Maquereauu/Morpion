@@ -55,9 +55,11 @@ def Morpion(isFirst=1):
   if whoplays == 0:
     player1 = True
     actual = player1symbol
+    print("Joueur 1 joue en premier")
   if whoplays == 1:
     player1 = False
     actual = player2symbol
+    print("Joueur 2 joue en premier")
 
   while True:
     if robot:
@@ -257,7 +259,7 @@ def IA(board,symbolPlayer,symbolAI):
   for i in range(3):
     for j in range(3):
       if i == 1 and (j == 0 or j == 2):
-        if board[i][j] == symbolPlayer and i+j == '□' :
+        if board[i][j] == symbolPlayer and board[i][0] == '□' :
           return i+j
       if j == 1 and (i == 0 or i == 2):
         if board[i][j] == symbolPlayer:
