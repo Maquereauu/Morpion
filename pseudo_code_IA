@@ -114,6 +114,20 @@
         #Alors
         #si la case est vide aux coordonnées j et 1
           #Alors renvoyer la valeur de la case sur laquelle l'IA veut poser som symbole
+  #Pour i allant de 0 à 2 avec un pas de 2
+    #Si le nombre de case avec le symbole du joueur sur la diagonale 1 vaut 1 et que le nombre de case avec le symbole du joueur sur la verticale i vaut 1 et que la première case de la diagonale 1 est vide
+    #Alors Si la case au centre du tableau est vide
+      #alors on renvoie la case centrale
+    #Pour j allant de 0 à 2
+      #Si la case Y[i][j] est vide
+        #Alors on renvoie la case
+  #Si le nombre de case avec le symbole du joueur sur la diagonale 2 vaut 1 et que le nombre de case avec le symbole du joueur sur la verticale i vaut 1 et que la première case de la diagonale 2 est vide
+    #Alors Si la case au centre du tableau est vide
+      #alors on renvoie la case centrale
+    #Pour j allant de 0 à 2
+      #Si la case Y[i][j] est vide
+        #Alors on renvoie la case
+    
   #Sinon
     #Alors
     #Pour i allant de 0 à 2
