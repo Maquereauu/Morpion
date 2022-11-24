@@ -37,6 +37,17 @@ def Morpion(isFirst=1):
         print("Veuillez mettre un entier,non pas un string >:(")
     if rules:
       print(dict_Morpion)
+  while True:
+      multiplayer = input("Voulez-vous jouer contre un humain ou bien contre un robot?")
+      multiplayer = multiplayer.upper()
+      if multiplayer in ["ROBOT",'R']:
+        robot = True
+        break
+      if multiplayer in ["HUMAIN",'H']:
+        robot = False
+        break
+      else:
+        print("Veuillez écrire soit robot,soit humain(ou bien r ou h)")
   symbolchoice = symbol()
   player1symbol = symbolchoice[0]
   player2symbol = symbolchoice[1]
@@ -49,16 +60,56 @@ def Morpion(isFirst=1):
     actual = player2symbol
 
   while True:
-    if player1:
-      print("Au tour de P1:")
-      player = str(input("Joueur 1 ,veuillez choisir "))
-      if player == "ratio":
-        print("Player 1 a gagné? ah oui...🤓")
-        return playAgain()
+    if robot:
+      if player1:
+        print("Au tour de P1:")
+        player = str(input("Joueur 1 ,veuillez choisir "))
+        if player == "ratio":
+          print("Player 1 a gagné? ah oui...🤓")
+          return playAgain()
+        if player in dict_Morpion and l[index_values[dict_Morpion[player]]] == 0:
+          player = index_values[dict_Morpion[player]]
+          l[player] = 1
+          grid_Morpion[floor(player / lenx)][player % leny] = actual
+        else:
+          try:
+            int(player)
+          except ValueError:
+            print("Ce n'est pas un coup possible >:(")
+            continue
+          player = int(player)
+          if not(player in index_values):
+            print("Ce n'est pas un coup possible >:(")
+            continue
+          player = index_values[player]
+          if player > 8 or player < 0 or l[player] == 1:
+            print("Ce n'est pas un coup possible >:(")
+            continue
+      if player1 == False:
+        print("Au tour de l'IA:")
+        player = IA(grid_Morpion,player1symbol,player2symbol)
+        for keys in index_values:
+          if player == index_values[keys]:
+            for key in dict_Morpion:
+              if dict_Morpion[key] == keys:
+                print("L'ia va jouer à la case "+key)
+    if robot == False:
+      if player1:
+        print("Au tour de P1:")
+        player = str(input("Joueur 1 ,veuillez choisir "))
+        if player == "ratio":
+          print("Player 1 a gagné? ah oui...🤓")
+          return playAgain()
+      if player1 == False:
+        print("Au tour de P2:")
+        player = str(input("Joueur 2 ,veuillez choisir "))
+        if player == "ratio":
+          print("Player 2 a gagné? ah oui...🤓")
+          return playAgain()
       if player in dict_Morpion and l[index_values[dict_Morpion[player]]] == 0:
-        player = index_values[dict_Morpion[player]]
-        l[player] = 1
-        grid_Morpion[floor(player / lenx)][player % leny] = actual
+          player = index_values[dict_Morpion[player]]
+          l[player] = 1
+          grid_Morpion[floor(player / lenx)][player % leny] = actual
       else:
         try:
           int(player)
@@ -73,14 +124,6 @@ def Morpion(isFirst=1):
         if player > 8 or player < 0 or l[player] == 1:
           print("Ce n'est pas un coup possible >:(")
           continue
-    if player1 == False:
-      print("Au tour de l'IA:")
-      player = IA(grid_Morpion,player1symbol,player2symbol)
-      for keys in index_values:
-        if player == index_values[keys]:
-          for key in dict_Morpion:
-            if dict_Morpion[key] == keys:
-              print("L'ia va jouer à la case "+key)
     for keys in index_values.keys():
       if player == index_values[keys]:
         l[player] = 1
@@ -211,7 +254,7 @@ def IA(board,symbolPlayer,symbolAI):
       if Diag2[l] != symbolPlayer:
         return 2+(l*2)
   if corners.count('□') == len(corners):
-    return 0
+    return 00
   for i in range(3):
     for j in range(3):
       if i == 1 and (j == 0 or j == 2):
@@ -229,12 +272,14 @@ def IA(board,symbolPlayer,symbolAI):
           return corners_id[i-1]
         return corners_id[i+1]
   if corners.count(symbolAI) == 0 and corners.count(symbolPlayer) == 1:
-    return 4
+    if board[1][1] == '□':
+      return 4
   for i in range(0,3,2):
     for j in range(0,3,2):
       if Y[i].count(symbolPlayer) == 1 and Y[i].count('□') == 2 and X[j].count(symbolPlayer) == 1 and X[j].count('□') == 2:
-        if X[j][1] == '□':
-          return (j*3)+1
+        for l in range(3):
+          if X[j][l] == '□':
+            return (j*3)+l
   for i in range(0,3,2):
     if Diag1.count(symbolPlayer) == 1 and Y[i].count(symbolPlayer) == 1 and Diag1[0] == '□':
       if board[1][1] == '□':
