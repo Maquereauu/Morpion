@@ -147,17 +147,17 @@ def Morpion(isFirst=1):
             print("ligne diagonale,player1 gagne,GG")
             return playAgain()
           elif grid_Morpion[x][y] == player2symbol and grid_Morpion[x-1][y-1] == player2symbol and grid_Morpion[x+1][y+1] == player2symbol:
-            print("ligne diagonale,player1 gagne,GG")
+            print("ligne diagonale,player2 gagne,GG")
             return playAgain()
           elif grid_Morpion[x][y] == player2symbol and grid_Morpion[x-1][y+1] == player2symbol and grid_Morpion[x+1][y-1] == player2symbol:
-            print("ligne diagonale,player1 gagne,GG")
+            print("ligne diagonale,player2 gagne,GG")
             return playAgain()
     if posY.count("0") == 3 or posY.count("1") == 3 or posY.count("2") == 3:
       if player1:
         print("ligne verticale,player1 gagne,GG")
         return playAgain()
       else:
-        print("ligne verticale,player1 gagne,GG")
+        print("ligne verticale,player2 gagne,GG")
         return playAgain()
     if posX.count("0") == 3 or posX.count("1") == 3 or posX.count("2") == 3:
       if player1:
